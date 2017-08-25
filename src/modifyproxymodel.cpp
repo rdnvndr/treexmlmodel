@@ -5,6 +5,7 @@
 namespace RTPTechGroup {
 namespace XmlModel {
 
+//! Структура предоставляющая доступ к закрытым членам QModelIndex
 struct PrivateModelIndex
 {
     qint32 r, c;

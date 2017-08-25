@@ -21,7 +21,6 @@ namespace XmlModel {
     modifyModel->submitAll();
     \endcode
 */
-
 class XMLMODELLIB ModifyProxyModel : public QAbstractProxyModel
 {
     Q_OBJECT

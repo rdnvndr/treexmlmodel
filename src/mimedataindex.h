@@ -11,13 +11,12 @@
 namespace RTPTechGroup {
 namespace XmlModel {
 
+typedef QList<QPersistentModelIndex> PersistentIndexes;
+
 //! MimeDataXml контейнер для записи информации с mime типом
 /*! MimeDataXml расширенный контейнер QMimeData. В нем можно
  *  передавать экземпляры классов типа QModelIndex
  */
-
-typedef QList<QPersistentModelIndex> PersistentIndexes;
-
 class XMLMODELLIB MimeDataIndex : public QMimeData
 {
     Q_OBJECT
