@@ -31,20 +31,20 @@ public:
     explicit ModifyProxyModel(QObject *parent = 0);
 
 
-    //! Возращает количество столбцов в индексе родителя
+    //! Возвращает количество столбцов в индексе родителя
     qint32 columnCount (const QModelIndex& parent = QModelIndex()) const;
 
-    //! Возращает количество строк в индексе родителя
+    //! Возвращает количество строк в индексе родителя
     qint32 rowCount(const QModelIndex& parent) const;
 
-    //! Возращает True если имеются потомки
+    //! Возвращает True если имеются потомки
     bool hasChildren(const QModelIndex &parent) const;
 
 
-    //! Возращает индекс модели для строки и колонки
+    //! Возвращает индекс модели для строки и колонки
     QModelIndex index(qint32 row, qint32 column, const QModelIndex& parent = QModelIndex()) const ;
 
-    //! Возращает индекс родителя
+    //! Возвращает индекс родителя
     QModelIndex parent (const QModelIndex& index) const ;
 
 
@@ -55,7 +55,7 @@ public:
     QModelIndex mapToSource(const QModelIndex& index) const ;
 
 
-    //! Возращает хранимые данные
+    //! Возвращает хранимые данные
     QVariant data(const QModelIndex &proxyIndex, qint32 role = Qt::DisplayRole) const;
 
     //! Устанавливает значение для указанной записи
@@ -70,11 +70,11 @@ public:
     //! Устанавливает разрешение на редактирование
     void setEditable(bool flag);
 
-    //! Возращает разрешение на редактирование
+    //! Возвращает разрешение на редактирование
     bool isEditable();
 
 
-    //! Возращает название заголовка
+    //! Возвращает название заголовка
     QVariant headerData(qint32 section, Qt::Orientation orientation, qint32 role) const;
 
     //! Устанавливает название заголовка

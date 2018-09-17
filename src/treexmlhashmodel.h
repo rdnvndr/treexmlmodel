@@ -48,7 +48,7 @@ public:
     //! Деструктор модели
     virtual ~TreeXmlHashModel();
 
-    //! Возращает хранимые данные
+    //! Возвращает хранимые данные
     QVariant data(const QModelIndex &index, qint32 role = Qt::DisplayRole ) const;
 
     //! Устанавливает значение для указанной записи
@@ -72,7 +72,7 @@ public:
     void addHashAttr(const QString &tag, const QString &value,
                       UniqueAttr unique = TreeXmlHashModel::NoUnique);
 
-    //! Возращает индекс по значению хешеированного поля
+    //! Возвращает индекс по значению хешеированного поля
     QModelIndex indexHashAttr(const QString &tag, const QString &attr,
                                const QVariant &value, qint32 number = 0) const;
 
@@ -93,13 +93,13 @@ public:
     //! Получить поле на которое ссылается указанное поле
     TagWithAttr toRelation(const QString &tag, const QString &attr) const;
 
-    //! Возращает ссылку на индекс
+    //! Возвращает ссылку на индекс
     QModelIndex indexLink(const QString &tag, const QString &attr, const QVariant &value) const;
 
-    //! Возращает ссылку на индекс
+    //! Возвращает ссылку на индекс
     QModelIndex indexLink(const QModelIndex &index) const;
 
-    //! Возращает uuid поле
+    //! Возвращает uuid поле
     QString uuidAttr(const QString &tag) const;
 
 private:

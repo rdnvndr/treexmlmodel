@@ -75,7 +75,7 @@ public:
     //! Деструктор модели
     virtual ~TreeXmlModel();
 
-    //! Возращает хранимые данные
+    //! Возвращает хранимые данные
     QVariant data(const QModelIndex &index, qint32 role = Qt::DisplayRole ) const;
 
     //! Устанавливает значение для указанной записи
@@ -84,7 +84,7 @@ public:
     //! Возвращает флаг записи
     Qt::ItemFlags flags(const QModelIndex &index) const;
 
-    //! Возращает название заголовка
+    //! Возвращает название заголовка
     QVariant headerData(qint32 section, Qt::Orientation orientation,
                         qint32 role = Qt::DisplayRole) const;
 
@@ -92,25 +92,25 @@ public:
     bool setHeaderData(qint32 section, Qt::Orientation orientation,
                        const QVariant &value, qint32 role = Qt::EditRole);
 
-    //! Возращает индекс модели для строки и колонки
+    //! Возвращает индекс модели для строки и колонки
     QModelIndex index(qint32 row, qint32 m_column,
                       const QModelIndex &parent = QModelIndex()) const;
 
-    //! Возращает индекс родителя
+    //! Возвращает индекс родителя
     QModelIndex parent(const QModelIndex &child) const;
 
-    //! Возращает количество строк в индексе родителя
+    //! Возвращает количество строк в индексе родителя
     qint32 rowCount(const QModelIndex &parent = QModelIndex()) const;
 
-    //! Возращает количество строк указанных тэгов в индексе родителя
+    //! Возвращает количество строк указанных тэгов в индексе родителя
     virtual qint32 rowCount(const QModelIndex &parent, const QStringList &tags) const;
 
-    //! Возращает количество строк указанных тэгов в индексе родителя c
+    //! Возвращает количество строк указанных тэгов в индексе родителя c
     //! учетом наследумых тэгов
     virtual qint32 rowCount(const QModelIndex &parent, const QStringList &tags,
                          const QStringList &attrTags) const;
 
-    //! Возращает количество столбцов в индексе родителя
+    //! Возвращает количество столбцов в индексе родителя
     qint32 columnCount(const QModelIndex &parent = QModelIndex()) const;
 
     //! Добавляет тэг для фильтрации
@@ -131,10 +131,10 @@ public:
     //! Очищает список тэгов, которые являются атрибутами
     void clearAttrTags();
 
-    //! Возращает True если тэг является атрибутом для родителя
+    //! Возвращает True если тэг является атрибутом для родителя
     bool isAttr(const QModelIndex &parent, QString tag) const;
 
-    //! Возращает True если строка является атрибутом
+    //! Возвращает True если строка является атрибутом
     bool isAttr(const QModelIndex &index) const;
 
     //! Получает класс связку TagXMLItem по индексу модели
@@ -146,7 +146,7 @@ public:
     //! Указывает xml атрибуты тэга для отображения
     void addDisplayedAttr(const QString &tag,const QStringList &value,QIcon icon = QIcon());
 
-    //! Возращает иконку для тэга
+    //! Возвращает иконку для тэга
     QIcon tagIcon(const QString &tag);
 
     //! Указывает тэги разрешенные для вставки
@@ -178,28 +178,28 @@ public:
     bool dropMimeData(const QMimeData *data, Qt::DropAction action,
                       qint32 row, qint32 column, const QModelIndex &parent);
 
-    //! Возращает объект с упакованными данными по списку индексов
+    //! Возвращает объект с упакованными данными по списку индексов
     QMimeData *mimeData(const QModelIndexList &indexes) const;
 
-    //! Возращает список типов, которые могут быть упакованы
+    //! Возвращает список типов, которые могут быть упакованы
     QStringList mimeTypes() const;
 
-    //! Возращает поддерживаемые моделью операции Drop
+    //! Возвращает поддерживаемые моделью операции Drop
     Qt::DropActions supportedDropActions() const;
 
-    //! Возращает поддерживаемые моделью операции Drag
+    //! Возвращает поддерживаемые моделью операции Drag
     Qt::DropActions supportedDragActions() const;
 
-    //! Возращает True если можно вставить строку
+    //! Возвращает True если можно вставить строку
     virtual bool isInsert(qint32 row, const QModelIndex &index, QString tag) const;
 
-    //! Возращает True если имеются потомки указанных тэгов
+    //! Возвращает True если имеются потомки указанных тэгов
     virtual bool hasChildren(const QModelIndex &parent, const QStringList &tags) const;
 
-    //! Возращает True если имеются потомки
+    //! Возвращает True если имеются потомки
     bool hasChildren(const QModelIndex &parent) const;
 
-    //! Возращает True если унаследован
+    //! Возвращает True если унаследован
     virtual bool isInherited(const QModelIndex &index) const;
 
     //! Перемещение элемента

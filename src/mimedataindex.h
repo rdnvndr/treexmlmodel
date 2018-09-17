@@ -27,13 +27,13 @@ public:
     //! Записывает объект
     virtual void setIndexes(PersistentIndexes indexes);
 
-    //! Возращает объект
+    //! Возвращает объект
     PersistentIndexes indexes() const;
 
-    //! Возращает true если объект внутри существует
+    //! Возвращает true если объект внутри существует
     virtual bool hasIndexes() const;
 
-    //! Возращает список mime типов записанной информации
+    //! Возвращает список mime типов записанной информации
     QStringList formats() const;
 
 private:

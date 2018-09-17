@@ -61,7 +61,7 @@ public:
     //! Проверка установлен ли фильтр для всех строк
     bool isFilterAllRows() const;
 
-    //! Возращает название заголовка
+    //! Возвращает название заголовка
     QVariant headerData(qint32 section, Qt::Orientation orientation, qint32 role) const;
 
 private:

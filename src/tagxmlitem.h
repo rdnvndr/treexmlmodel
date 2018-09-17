@@ -25,37 +25,37 @@ public:
     //! Деструктор узла дерева
     virtual ~TagXmlItem();
 
-    //! Возращает родителя
+    //! Возвращает родителя
     TagXmlItem *parent();
 
-    //! Возращает тэг
+    //! Возвращает тэг
     QDomNode node() const;
 
-    //! Возращает имя узла
+    //! Возвращает имя узла
     QString nodeName() const;
 
     //! Устанавливает имя узла
     void setNodeName(const QString& tagName);
 
-    //! Возращает значение атрибута тэга
+    //! Возвращает значение атрибута тэга
     QVariant value(const QString& attr);
 
     //! Устанавливает значение атрибута тэга
     void setValue(const QString& attr, const QVariant& val);
 
-    //! Возращает количество записей
+    //! Возвращает количество записей
     qint32 count(QStringList tags = QStringList(),
               QStringList parentTags = QStringList());
 
-    //! Возращает True при наличии записей
+    //! Возвращает True при наличии записей
     qint32 hasChildren(QStringList tags = QStringList(),
                     QStringList parentTags = QStringList());
 
-    //! Возращает потомка
+    //! Возвращает потомка
     TagXmlItem *child(qint32 i, QStringList tags = QStringList(),
                              QStringList parentTags = QStringList());
 
-    //! Возращает номер потомка
+    //! Возвращает номер потомка
     qint32 childNumber(TagXmlItem *child, QStringList tags, QStringList parentTags);
 
     //! Вставка узла
@@ -72,7 +72,7 @@ public:
     //! Проверка на возможность удаление узла
     bool checkRemoveChild(const qint32 &row);
 
-    //! Возращает True если унаследован
+    //! Возвращает True если унаследован
     bool isInherited();
 
 signals:
