@@ -18,9 +18,9 @@ TreeXmlModel::TreeXmlModel(QDomNode document, QObject *parent)
         QDomDocument doc;
         QDomNode node = doc.createProcessingInstruction("xml","version=\"1.0\" encoding=\"UTF-8\"");
         document.insertBefore(node, doc.firstChild());
-        m_rootItem = new TagXmlItem(doc, NULL);
+        m_rootItem = new TagXmlItem(doc, nullptr);
     } else
-        m_rootItem = new TagXmlItem(document, NULL);
+        m_rootItem = new TagXmlItem(document, nullptr);
 
     m_column = 1;
 }

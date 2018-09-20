@@ -69,7 +69,7 @@ qint32 TagXmlItem::count(QStringList tags, QStringList parentTags){
                 return count;
 
         // Считаем количество унаследованных узлов
-        if (m_parentItem != NULL)
+        if (m_parentItem != nullptr)
             foreach (const QString &tag,parentTags)
                 if (tags.contains(tag)){
                     count += parent()->count(parentTags,parentTags);
@@ -101,7 +101,7 @@ qint32 TagXmlItem::hasChildren(QStringList tags, QStringList parentTags)
                 return false;
 
         // Считаем количество унаследованных узлов
-        if (m_parentItem != NULL)
+        if (m_parentItem != nullptr)
             foreach (const QString &tag,parentTags)
                 if (tags.contains(tag)){
                     return parent()->hasChildren(parentTags,parentTags);
@@ -162,10 +162,10 @@ TagXmlItem *TagXmlItem::child(qint32 i, QStringList tags, QStringList parentTags
         // У наследуемых узлов потомков не отображаем
         QString nodeName = m_domNode.nodeName();
         if (parentTags.contains(nodeName))
-                return 0;
+                return nullptr;
 
         // Поиск наследуемого узла
-        if ((i-number)>=0 && m_parentItem!=NULL){
+        if ((i-number)>=0 && m_parentItem != nullptr){
             TagXmlItem *child = m_parentItem->child(i-number,parentTags,parentTags);
             if (child) {
                 TagXmlItem *childItem;
@@ -184,7 +184,7 @@ TagXmlItem *TagXmlItem::child(qint32 i, QStringList tags, QStringList parentTags
         }
     }
 
-    return 0;
+    return nullptr;
 }
 
 qint32 TagXmlItem::childNumber(TagXmlItem *child, QStringList tags, QStringList parentTags)
@@ -216,7 +216,7 @@ qint32 TagXmlItem::childNumber(TagXmlItem *child, QStringList tags, QStringList 
             return -1;
 
         // Считаем количество унаследованных узлов
-        if (m_parentItem != NULL){
+        if (m_parentItem != nullptr){
             qint32 number = parent()->childNumber(child,parentTags,parentTags);
             if (number!=-1)
                 return count + number;
