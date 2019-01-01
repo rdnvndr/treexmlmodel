@@ -1,0 +1,7 @@
+project(subprojects)
+
+add_subdirectory(modeltest)
+add_subdirectory(tst_modifyproxymodel)
+add_subdirectory(tst_tablexmlproxymodel)
+add_subdirectory(tst_treexmlhashmodel)
+add_subdirectory(tst_treexmlmodel)
