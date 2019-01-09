@@ -30,10 +30,10 @@ private:
 };
 
 tst_TableXmlProxyModel::tst_TableXmlProxyModel(QObject *parent) :
-    m_model(0)
+    m_model(nullptr)
 {
     Q_UNUSED(parent)
-    m_proxy = NULL;
+    m_proxy = nullptr;
 }
 
 tst_TableXmlProxyModel::~tst_TableXmlProxyModel()

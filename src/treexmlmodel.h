@@ -21,7 +21,7 @@ class TagXmlItem;
     Пример использования:
     \code
 
-    QString filePath = QFileDialog::getOpenFileName(NULL, tr("Открытие"),"", tr("Фаил модели (*.xml)"));
+    QString filePath = QFileDialog::getOpenFileName(nullptr, tr("Открытие"),"", tr("Фаил модели (*.xml)"));
     QFile file(filePath);
     if (file.open(QIODevice::ReadOnly)) {
         QDomDocument document;

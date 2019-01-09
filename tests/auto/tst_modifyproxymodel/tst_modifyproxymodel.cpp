@@ -30,10 +30,10 @@ private:
 };
 
 tst_ModifyProxyModel::tst_ModifyProxyModel(QObject *parent) :
-    m_model(0)
+    m_model(nullptr)
 {
     Q_UNUSED(parent)
-    m_proxy = NULL;
+    m_proxy = nullptr;
 }
 
 tst_ModifyProxyModel::~tst_ModifyProxyModel()

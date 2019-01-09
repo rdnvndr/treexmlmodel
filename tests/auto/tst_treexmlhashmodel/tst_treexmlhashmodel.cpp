@@ -11,7 +11,7 @@ class tst_TreeXmlHashModel : public QObject
 {
     Q_OBJECT
 public:
-    explicit tst_TreeXmlHashModel(QObject *parent = 0);
+    explicit tst_TreeXmlHashModel(QObject *parent = nullptr);
     virtual ~tst_TreeXmlHashModel();
     
 public slots:
@@ -30,7 +30,7 @@ private:
 tst_TreeXmlHashModel::tst_TreeXmlHashModel(QObject *parent) :
     QObject(parent)
 {
-    m_model = NULL;
+    m_model = nullptr;
 }
 
 tst_TreeXmlHashModel::~tst_TreeXmlHashModel()
