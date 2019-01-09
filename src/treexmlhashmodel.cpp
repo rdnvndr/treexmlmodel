@@ -27,7 +27,7 @@ void TreeXmlHashModel::addHashAttr(const QString &tag, const QString &value, Uni
 void TreeXmlHashModel::makeHashingOne(TagXmlItem *item, bool remove)
 {
     QString tag = item->nodeName();
-    foreach (const QString& attr, m_hashAttr[tag].keys()){
+    for (const QString& attr : m_hashAttr[tag].keys()){
         QString value = upperValue(tag, attr, item->value(attr).toString());
         if (remove)
             m_hashValue[tag][attr].remove(value,item);
@@ -169,9 +169,9 @@ QList<TreeXmlHashModel::TagWithAttr> TreeXmlHashModel::fromRelation(const QStrin
                                                                       const QString &linkAttr) const
 {
     QList<TreeXmlHashModel::TagWithAttr> list;
-    foreach (const QString &tag,m_linkAttr.keys())
-        foreach (const QString &attr,m_linkAttr[tag].keys())
-            foreach (const QString &lTag,m_linkAttr[tag][attr].keys())
+    for (const QString &tag : m_linkAttr.keys())
+        for (const QString &attr : m_linkAttr[tag].keys())
+            for (const QString &lTag : m_linkAttr[tag][attr].keys())
                 if (lTag == linkTag
                         && (m_linkAttr[tag][attr][lTag] == linkAttr || linkAttr.isEmpty()))
                 {
@@ -187,7 +187,7 @@ TreeXmlHashModel::TagWithAttr TreeXmlHashModel::toRelation(const QString &tag,
                                                              const QString &attr) const
 {
     TreeXmlHashModel::TagWithAttr tagWithAttr;
-    foreach (const QString &linkTag,m_linkAttr[tag][attr].keys()) {
+    for (const QString &linkTag : m_linkAttr[tag][attr].keys()) {
         tagWithAttr.tag =  linkTag;
         tagWithAttr.attr = m_linkAttr[tag][attr][linkTag];
         return tagWithAttr;
@@ -198,7 +198,7 @@ TreeXmlHashModel::TagWithAttr TreeXmlHashModel::toRelation(const QString &tag,
 QModelIndex TreeXmlHashModel::indexLink(const QString &tag, const QString &attr, const QVariant &value) const
 {
     if (m_linkAttr[tag].contains(attr)) {
-        foreach (const QString &linkTag,m_linkAttr[tag][attr].keys()){
+        for (const QString &linkTag : m_linkAttr[tag][attr].keys()){
             QString linkAttr = m_linkAttr[tag][attr][linkTag];
             QString attr = uuidAttr(linkTag);
             if (!attr.isEmpty()) {
@@ -356,7 +356,7 @@ bool TreeXmlHashModel::moveIndex(const QModelIndex &srcIndex, const QModelIndex 
 
 QString TreeXmlHashModel::uuidAttr(const QString &tag) const
 {
-    foreach (const QString &attr, m_hashAttr[tag].keys())
+    for (const QString &attr : m_hashAttr[tag].keys())
         if (m_hashAttr[tag][attr]==TreeXmlHashModel::Uuid)
             return attr;
     return QString();

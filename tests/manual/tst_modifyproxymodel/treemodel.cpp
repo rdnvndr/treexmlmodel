@@ -7,7 +7,7 @@ TreeModel::TreeModel(const QStringList &headers, const QString &data,
     : QAbstractItemModel(parent)
 {
     QVector<QVariant> rootData;
-    foreach (const QString &header, headers)
+    for (const QString &header : headers)
         rootData << header;
 
     rootItem = new TreeItem(rootData);

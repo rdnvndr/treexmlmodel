@@ -221,7 +221,7 @@ void TreeXmlModel::removeDisplayedAttr(const QString &tag)
 
     if (flagcolumn){
         m_column = 1;
-        foreach (const QStringList &diplayedAttr, m_displayedAttr.values())
+        for (const QStringList &diplayedAttr : m_displayedAttr.values())
             if (diplayedAttr.count()>m_column)
                 m_column = diplayedAttr.count();
     }
@@ -564,7 +564,7 @@ bool TreeXmlModel::dropMimeData(const QMimeData *data, Qt::DropAction action,
 
     const  MimeDataIndex *mimeData
             = qobject_cast<const MimeDataIndex *>(data);
-    foreach (const QModelIndex& index, mimeData->indexes())
+    for (const QModelIndex& index : mimeData->indexes())
         if (index.isValid()) {
             if (action == Qt::MoveAction)
                 return moveIndex(index, parent, row, true);
@@ -616,7 +616,7 @@ QMimeData *TreeXmlModel::mimeData(const QModelIndexList &indexes) const
 {
     PersistentIndexes persistentIndex;
 
-    foreach (const QModelIndex& index,indexes){
+    for (const QModelIndex& index : indexes){
         if (index.isValid())
             if (!isInherited(index))
                 persistentIndex.append(QPersistentModelIndex(index));

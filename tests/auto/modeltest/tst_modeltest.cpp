@@ -236,7 +236,7 @@ public slots:
     void storePersistent()
     {
         // This method is called from layoutAboutToBeChanged. Persistent indexes should be valid
-        foreach(const QModelIndex &idx, m_persistentProxyIndexes)
+        for (const QModelIndex &idx : qAsConst(m_persistentProxyIndexes))
             if (!idx.isValid()) {
                 qWarning("%s: persistentProxyIndexes contains invalid index", Q_FUNC_INFO);
                 ++storePersistentFailureCount;

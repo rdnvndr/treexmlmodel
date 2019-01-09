@@ -70,7 +70,7 @@ qint32 TagXmlItem::count(QStringList tags, QStringList parentTags){
 
         // Считаем количество унаследованных узлов
         if (m_parentItem != nullptr)
-            foreach (const QString &tag,parentTags)
+            for (const QString &tag : qAsConst(parentTags))
                 if (tags.contains(tag)){
                     count += parent()->count(parentTags,parentTags);
                     break;
@@ -102,7 +102,7 @@ qint32 TagXmlItem::hasChildren(QStringList tags, QStringList parentTags)
 
         // Считаем количество унаследованных узлов
         if (m_parentItem != nullptr)
-            foreach (const QString &tag,parentTags)
+            for (const QString &tag : qAsConst(parentTags))
                 if (tags.contains(tag)){
                     return parent()->hasChildren(parentTags,parentTags);
                 }
@@ -119,7 +119,7 @@ TagXmlItem *TagXmlItem::parent()
 TagXmlItem *TagXmlItem::child(qint32 i, QStringList tags, QStringList parentTags){
 
     qint32 number=0;
-    foreach (TagXmlItem *childItem, m_childItems){
+    for (TagXmlItem *childItem : qAsConst(m_childItems)){
         if (!tags.empty()){
             QString nodeName =  childItem->m_domNode.nodeName();
             if (tags.contains(nodeName)) {

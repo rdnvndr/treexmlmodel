@@ -24,7 +24,7 @@ bool TableXMLProxyModel::filterAcceptsRow(qint32 row, const QModelIndex &parent)
 
     if (parent.internalPointer() ==  m_index.internalPointer()){
         QString tag = sourceModel()->data(source_index, TreeXmlModel::TagRole).toString();
-        foreach (const QString& tagName,this->m_tags)
+        for (const QString& tagName : qAsConst(this->m_tags))
             if (tag.contains(tagName)){
                 if (filterRegExp() == QRegExp("\\S*")){
                     if (sourceModel()->data(source_index).toString().isEmpty())
