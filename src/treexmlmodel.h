@@ -213,6 +213,11 @@ public:
     //! Проверка наличия подчиненного элемента у родителя
     bool hasIndex(qint32 row, qint32 column, const QModelIndex &parent) const;
 
+protected:
+
+    //! Возвращает дочерний индекс
+    QModelIndex childIdx(int arow, int acolumn, const QModelIndex &parent = QModelIndex()) const;
+
 private:
 
     //! Обновление отредактированных унаследованных строк

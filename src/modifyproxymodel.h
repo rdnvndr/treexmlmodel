@@ -134,6 +134,11 @@ public slots:
     //! Слот обработки сигнала вставки строк в источнике
     void sourceRowsInserted(const QModelIndex &parent, qint32 start, qint32 end);
 
+protected:
+
+    //! Возвращает дочерний индекс
+    QModelIndex childIdx(int arow, int acolumn, const QModelIndex &parent = QModelIndex()) const;
+
 private:
 
     //! Вставка строк в исходную модель

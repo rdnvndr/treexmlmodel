@@ -238,6 +238,12 @@ bool ModifyProxyModel::insertSourceRows(const QPersistentModelIndex &parent,
     return true;
 }
 
+QModelIndex ModifyProxyModel::childIdx(int arow, int acolumn, const QModelIndex &parent) const
+{
+    return parent.model() ? parent.model()->index(arow, acolumn, parent)
+                          : QModelIndex();
+}
+
 qint32 ModifyProxyModel::columnCount(const QModelIndex &parent) const
 {
     if(!sourceModel())
@@ -535,7 +541,7 @@ bool ModifyProxyModel::removeRows(qint32 row, qint32 count, const QModelIndex &p
 
             for (qint32 i = beginRowInsert; i < beginRowInsert + removeRowCountInCache; ++i)
                 for (qint32 j = 0; j < sourceModel()->columnCount(parent);++j) {
-                    QPersistentModelIndex removeIndex(parent.child(i,j));
+                    QPersistentModelIndex removeIndex(childIdx(i, j, parent));
                     if (m_updatedRow.contains(removeIndex)) {
                         m_updatedRow.remove(removeIndex);
                     }
@@ -590,9 +596,9 @@ QModelIndex ModifyProxyModel::insertLastRows(qint32 row, qint32 count, const QMo
     endInsertRows();
 
     if (parent.isValid())
-        return parent.child(position+count-1,0);
+        return childIdx(position+count-1, 0, parent);
     else
-        return index(position+count-1,0,parent);
+        return index(position+count-1, 0, parent);
 }
 
 bool ModifyProxyModel::isInsertRow(const QModelIndex &index) const

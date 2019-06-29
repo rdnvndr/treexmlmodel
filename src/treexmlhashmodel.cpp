@@ -290,7 +290,7 @@ QModelIndex TreeXmlHashModel::insertLastRows(qint32 row, qint32 count,
 {
     QModelIndex lastInsertRow = TreeXmlModel::insertLastRows(row, count, parent,tag);
     if (!lastInsertRow.isValid())
-        return QModelIndex().child(-1,-1);
+        return childIdx(-1,-1);
 
     for (qint32 i=0;i<count;++i) {
         insertUuid(index(row+i,0,parent),tag);
@@ -342,12 +342,12 @@ bool TreeXmlHashModel::moveIndex(const QModelIndex &srcIndex, const QModelIndex 
     bool success = true;
     if (recursively) {
         qint32 row = 0;
-        QModelIndex childIndex = srcIndex.child(row,0);
+        QModelIndex childIndex = childIdx(row,0,srcIndex);
         while (childIndex.isValid())
         {
             if (!isInherited(childIndex))
                 success = moveIndex(childIndex, index, row, recursively) && success;
-            childIndex = srcIndex.child(++row,0);
+            childIndex = childIdx(++row,0,srcIndex);
         }
     }
 
