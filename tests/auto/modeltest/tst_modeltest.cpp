@@ -124,9 +124,9 @@ void tst_ModelTest::treeWidgetModel()
     root->removeChild(remove);
     QTreeWidgetItem *parent = new QTreeWidgetItem(&widget, QStringList("parent"));
     new QTreeWidgetItem(parent, QStringList("child"));
-    widget.setItemHidden(parent, true);
+    widget.setHidden(parent);
 
-    widget.sortByColumn(0);
+    widget.sortByColumn(0, Qt::AscendingOrder);
 }
 
 void tst_ModelTest::standardItemModel()
